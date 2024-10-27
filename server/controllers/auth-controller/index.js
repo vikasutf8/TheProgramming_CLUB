@@ -4,11 +4,11 @@ const jwt = require("jsonwebtoken");
 
 const registerUser = async (req, res) => {
   const { userName, userEmail, password, role } = req.body;
-
+  // console.log(req.body, "req.body");
   const existingUser = await User.findOne({
-    $or: [{ userEmail }, { userName }],
+    $or: [{ userEmail }, { userName }],   
   });
-
+console.log(existingUser,"dslkfjasdlgfhaskjgkfl")
   if (existingUser) {
     return res.status(400).json({
       success: false,
@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
     role,
     password: hashPassword,
   });
-
+  console.log(newUser, "newUser");
   await newUser.save();
 
   return res.status(201).json({
@@ -31,6 +31,8 @@ const registerUser = async (req, res) => {
     message: "User registered successfully!",
   });
 };
+
+
 
 const loginUser = async (req, res) => {
   const { userEmail, password } = req.body;

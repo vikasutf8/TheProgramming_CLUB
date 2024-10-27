@@ -6,6 +6,7 @@ export async function registerService(formData) {
     role: "user",
   });
 
+  console.log(data, "data register");
   return data;
 }
 
@@ -17,7 +18,7 @@ export async function loginService(formData) {
 
 export async function checkAuthService() {
   const { data } = await axiosInstance.get("/auth/check-auth");
-
+  console.log(data, "data check auth");
   return data;
 }
 

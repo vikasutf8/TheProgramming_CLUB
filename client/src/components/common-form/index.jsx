@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import FormControls from "./form-controls";
-
+// submit form their
 function CommonForm({
   handleSubmit,
   buttonText,

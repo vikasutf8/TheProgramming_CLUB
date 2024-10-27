@@ -6,6 +6,7 @@ const verifyToken = (token, secretKey) => {
 
 const authenticate = (req, res, next) => {
   const authHeader = req.headers.authorization;
+  console.log(req.headers, "req.headers");
   console.log(authHeader, "authHeader");
 
   if (!authHeader) {
@@ -16,6 +17,7 @@ const authenticate = (req, res, next) => {
   }
 
   const token = authHeader.split(" ")[1];
+  console.log(token, "token");
 
   try {
     const payload = verifyToken(token, "JWT_SECRET");

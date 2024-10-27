@@ -1,3 +1,5 @@
+// all custom form types and what its required to be rendered
+
 export const signUpFormControls = [
   {
     name: "userName",

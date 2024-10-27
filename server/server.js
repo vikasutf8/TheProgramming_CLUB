@@ -16,7 +16,7 @@ const MONGO_URI = process.env.MONGO_URI;
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: "*",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -40,7 +40,7 @@ app.use("/student/courses-bought", studentCoursesRoutes);
 app.use("/student/course-progress", studentCourseProgressRoutes);
 
 app.use((err, req, res, next) => {
-  console.log("err.stack :" , err.stack);
+  console.log("global errorhandling  err.stack :" , err.stack);
   res.status(500).json({
     success: false,
     message: "Something went wrong",
